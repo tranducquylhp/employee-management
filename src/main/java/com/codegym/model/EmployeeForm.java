@@ -3,16 +3,28 @@ package com.codegym.model;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class EmployeeForm {
     private Long id;
+
+    @NotBlank
     private String name;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
+
+    @NotBlank
     private String address;
+
     private MultipartFile avatar;
+
+    @Min(0)
     private float salary;
+
     private Department department;
 
     public EmployeeForm() {

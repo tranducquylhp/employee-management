@@ -41,7 +41,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findAllByNameContaining(name, pageable);
     }
 
-    private Employee getEmployee(EmployeeForm employeeForm) {
+    @Override
+    public Employee getEmployee(EmployeeForm employeeForm) {
         // lay ten file
         MultipartFile multipartFile = employeeForm.getAvatar();
         String fileName = multipartFile.getOriginalFilename();
@@ -53,7 +54,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        if (fileName.equals("")){
+        if (fileName.equals("") && employeeForm.getId() != null){
             Employee employee = findById(employeeForm.getId());
             fileName = employee.getAvatar();
         }

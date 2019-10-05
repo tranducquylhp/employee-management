@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,7 +26,10 @@ public class DepartmentController {
     }
 
     @PostMapping("/department/create")
-    public String saveDepartment(@ModelAttribute Department department){
+    public String saveDepartment(@Validated @ModelAttribute Department department, BindingResult result){
+        if (result.hasFieldErrors()) {
+            return "/department/create";
+        }
         departmentService.save(department);
         return "redirect:/departments";
     }
@@ -50,8 +56,11 @@ public class DepartmentController {
         }
     }
 
-    @PostMapping("/department/edit")
-    public String updateDepartment(@ModelAttribute Department department){
+    @PostMapping("/department/edit/{id}")
+    public String updateDepartment(@Validated @ModelAttribute Department department, BindingResult result){
+        if (result.hasFieldErrors()) {
+            return "/department/edit";
+        }
         departmentService.save(department);
         return "redirect:/departments";
     }

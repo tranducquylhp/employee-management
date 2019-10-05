@@ -10,7 +10,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -49,9 +51,9 @@ public class EmployeeController {
     }
 
     @PostMapping("/employee/create")
-    public String saveEmployee(@ModelAttribute EmployeeForm employeeForm, BindingResult result){
-        if (result.hasErrors()) {
-            System.out.println("Result Error Occured" + result.getAllErrors());
+    public String saveEmployee(@Validated @ModelAttribute EmployeeForm employeeForm, BindingResult result){
+        if (result.hasFieldErrors()) {
+            return "/employee/create";
         }
         employeeService.save(employeeForm);
         return "redirect:/employees";
@@ -71,12 +73,11 @@ public class EmployeeController {
         }
     }
 
-    @PostMapping("/employee/edit")
-    public String updateEmployee(@ModelAttribute EmployeeForm employeeForm, BindingResult result){
-        if (result.hasErrors()) {
-            System.out.println("Result Error Occured" + result.getAllErrors());
+    @PostMapping("/employee/edit/")
+    public String updateEmployee(@Validated @ModelAttribute EmployeeForm employeeForm, BindingResult result){
+        if (!result.hasFieldErrors()) {
+            employeeService.save(employeeForm);
         }
-        employeeService.save(employeeForm);
         return "redirect:/employees";
     }
 

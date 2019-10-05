@@ -8,4 +8,5 @@ import org.springframework.data.domain.Pageable;
 public interface EmployeeService extends  GeneralService<Employee> {
     void save(EmployeeForm employeeForm);
     Page<Employee> findAllByNameContaining(String name, Pageable pageable);
+    Employee getEmployee(EmployeeForm employeeForm);
 }
