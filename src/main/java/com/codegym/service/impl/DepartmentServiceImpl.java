@@ -5,11 +5,9 @@ import com.codegym.model.Employee;
 import com.codegym.repository.DepartmentRepository;
 import com.codegym.repository.EmployeeRepository;
 import com.codegym.service.DepartmentService;
-import com.codegym.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -28,6 +26,11 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Iterable<Employee> findAllByDepartment(Department department) {
         List<Employee> employees = (List<Employee>) employeeRepository.findAllByDepartment(department);
+        sortListEmployees(employees);
+        return employees;
+    }
+
+    private void sortListEmployees(List<Employee> employees) {
         for (int i=0; i<employees.size()-1; i++){
             Employee employee1 = employees.get(i);
             for (int j=i+1; j<employees.size(); j++){
@@ -40,7 +43,6 @@ public class DepartmentServiceImpl implements DepartmentService {
                 }
             }
         }
-        return employees;
     }
 
     @Override

@@ -20,7 +20,7 @@ public class DepartmentFormatter implements Formatter<Department> {
     }
 
     @Override
-    public Department parse(String text, Locale locale) throws ParseException {
+    public Department parse(String text, Locale locale){
         return departmentService.findById(Long.parseLong(text));
     }
 

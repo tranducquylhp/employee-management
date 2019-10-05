@@ -39,9 +39,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
-import java.util.HashSet;
 import java.util.Properties;
-import java.util.Set;
 
 @Configuration
 @EnableWebMvc
