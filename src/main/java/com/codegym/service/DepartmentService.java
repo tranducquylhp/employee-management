@@ -1,4 +1,9 @@
 package com.codegym.service;
 
-public interface DepartmentService {
+import com.codegym.model.Department;
+import com.codegym.model.Employee;
+
+public interface DepartmentService extends GeneralService<Department>{
+    void save(Department department);
+    Iterable<Employee> findAllByDepartment(Department department);
 }

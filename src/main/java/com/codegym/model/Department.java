@@ -1,6 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="departments")
@@ -10,16 +11,20 @@ public class Department {
     private Long id;
     private String name;
 
+    @OneToMany(targetEntity = Employee.class)
+    private List<Employee> employees;
+
     public Department() {
     }
 
-    public Department(Long id, String name) {
+    public Department(Long id, String name, List<Employee> employees) {
         this.name = name;
-        this.id = id;
+        this.employees = employees;
     }
 
-    public Department(String name) {
+    public Department(String name, List<Employee> employees) {
         this.name = name;
+        this.employees = employees;
     }
 
     public Long getId() {
@@ -36,5 +41,13 @@ public class Department {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 }

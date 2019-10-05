@@ -1,7 +1,10 @@
 package com.codegym;
 
 import com.codegym.converter.StringToLocalDateConverter;
+import com.codegym.formatter.DepartmentFormatter;
+import com.codegym.service.DepartmentService;
 import com.codegym.service.EmployeeService;
+import com.codegym.service.impl.DepartmentServiceImpl;
 import com.codegym.service.impl.EmployeeServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +66,11 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
         return new EmployeeServiceImpl();
     }
 
+    @Bean
+    public DepartmentService departmentService(){
+        return new DepartmentServiceImpl();
+    }
+
     // Config file sources
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -122,7 +130,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/employee_management");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/employee_management?useUnicode=true&characterEncoding=UTF-8");
         dataSource.setUsername( "root" );
         dataSource.setPassword( "tranducquylhp98" );
         return dataSource;
@@ -160,5 +168,6 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
         StringToLocalDateConverter stringToLocalDateConverter = new
                 StringToLocalDateConverter("yyyy-MM-dd");
         registry.addConverter(stringToLocalDateConverter);
+        registry.addFormatter(new DepartmentFormatter(applicationContext.getBean(DepartmentService.class)));
     }
 }

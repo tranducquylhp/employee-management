@@ -934,156 +934,193 @@
     <table id="235" parent="4" name="departments">
       <Engine>MyISAM</Engine>
     </table>
-    <table id="236" parent="4" name="employees">
+    <table id="236" parent="4" name="departments_employees">
       <Engine>MyISAM</Engine>
     </table>
-    <table id="237" parent="4" name="hibernate_sequence">
+    <table id="237" parent="4" name="employees">
       <Engine>MyISAM</Engine>
     </table>
-    <column id="238" parent="231" name="id">
+    <table id="238" parent="4" name="hibernate_sequence">
+      <Engine>MyISAM</Engine>
+    </table>
+    <column id="239" parent="231" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="239" parent="231" name="content">
+    <column id="240" parent="231" name="content">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="231" name="dateCreate">
+    <column id="241" parent="231" name="dateCreate">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="231" name="description">
+    <column id="242" parent="231" name="description">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="231" name="title">
+    <column id="243" parent="231" name="title">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="231" name="category_id">
+    <column id="244" parent="231" name="category_id">
       <Position>6</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="244" parent="231" name="FKiby9n5ojoe97fjfdg6ancko9l">
+    <index id="245" parent="231" name="FKiby9n5ojoe97fjfdg6ancko9l">
       <ColNames>category_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="245" parent="231" name="PRIMARY">
+    <key id="246" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="246" parent="232" name="id">
+    <column id="247" parent="232" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="232" name="name">
+    <column id="248" parent="232" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="248" parent="232" name="PRIMARY">
+    <key id="249" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="249" parent="233" name="Category_id">
+    <column id="250" parent="233" name="Category_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="233" name="blogs_id">
+    <column id="251" parent="233" name="blogs_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="251" parent="233" name="UK_nosj5x9h2b4trfqciacbkpyqh">
+    <index id="252" parent="233" name="UK_nosj5x9h2b4trfqciacbkpyqh">
       <ColNames>blogs_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="252" parent="233" name="FKfp5jlvwkv9sramk0f0selfl5g">
+    <index id="253" parent="233" name="FKfp5jlvwkv9sramk0f0selfl5g">
       <ColNames>Category_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="253" parent="233" name="UK_nosj5x9h2b4trfqciacbkpyqh">
+    <key id="254" parent="233" name="UK_nosj5x9h2b4trfqciacbkpyqh">
       <ColNames>blogs_id</ColNames>
       <UnderlyingIndexName>UK_nosj5x9h2b4trfqciacbkpyqh</UnderlyingIndexName>
     </key>
-    <column id="254" parent="234" name="next_val">
+    <column id="255" parent="234" name="next_val">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="235" name="id">
+    <column id="256" parent="235" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="235" name="name">
+    <column id="257" parent="235" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="257" parent="235" name="PRIMARY">
+    <key id="258" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="258" parent="236" name="id">
+    <column id="259" parent="236" name="Department_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="260" parent="236" name="employees_id">
+      <Position>2</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="261" parent="236" name="UK_kkqm4u9yevlnut2gxh9dp20u3">
+      <ColNames>employees_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="262" parent="236" name="FKt5x1w669jb760nm7gx1w87p0r">
+      <ColNames>Department_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="263" parent="236" name="UK_kkqm4u9yevlnut2gxh9dp20u3">
+      <ColNames>employees_id</ColNames>
+      <UnderlyingIndexName>UK_kkqm4u9yevlnut2gxh9dp20u3</UnderlyingIndexName>
+    </key>
+    <column id="264" parent="237" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="236" name="address">
+    <column id="265" parent="237" name="address">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="236" name="avatar">
+    <column id="266" parent="237" name="avatar">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="236" name="birthDate">
+    <column id="267" parent="237" name="birthDate">
       <Position>4</Position>
-      <DataType>datetime|0s</DataType>
+      <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="236" name="name">
+    <column id="268" parent="237" name="name">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="236" name="salary">
+    <column id="269" parent="237" name="salary">
       <Position>6</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="264" parent="236" name="PRIMARY">
+    <column id="270" parent="237" name="department_id">
+      <Position>7</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="271" parent="237" name="FKgy4qe3dnqrm3ktd76sxp7n4c2">
+      <ColNames>department_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="272" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="265" parent="237" name="next_val">
+    <column id="273" parent="238" name="next_val">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>

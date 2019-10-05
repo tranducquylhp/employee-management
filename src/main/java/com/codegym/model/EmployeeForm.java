@@ -13,25 +13,28 @@ public class EmployeeForm {
     private String address;
     private MultipartFile avatar;
     private float salary;
+    private Department department;
 
     public EmployeeForm() {
     }
 
-    public EmployeeForm(Long id, String name, LocalDate birthDate, String address, MultipartFile avatar, float salary) {
+    public EmployeeForm(Long id, String name, LocalDate birthDate, String address, MultipartFile avatar, float salary, Department department) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
         this.address = address;
         this.avatar = avatar;
         this.salary = salary;
+        this.department = department;
     }
 
-    public EmployeeForm(String name, LocalDate birthDate, String address, MultipartFile avatar, float salary) {
+    public EmployeeForm(String name, LocalDate birthDate, String address, MultipartFile avatar, float salary, Department department) {
         this.name = name;
         this.birthDate = birthDate;
         this.address = address;
         this.avatar = avatar;
         this.salary = salary;
+        this.department = department;
     }
 
     public Long getId() {
@@ -80,5 +83,13 @@ public class EmployeeForm {
 
     public void setSalary(float salary) {
         this.salary = salary;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

@@ -38,8 +38,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee findById(Long id) {
-        return employeeRepository.findOne(id);
+    public Page<Employee> findAllByNameContaining(String name, Pageable pageable) {
+        return employeeRepository.findAllByNameContaining(name, pageable);
     }
 
     private Employee getEmployee(EmployeeForm employeeForm) {
@@ -62,9 +62,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         // tao doi tuong de luu vao db
         if (employeeForm.getId() == null) {
-            return new Employee(employeeForm.getName(), employeeForm.getBirthDate(), employeeForm.getAddress(), fileName, employeeForm.getSalary());
+            return new Employee(employeeForm.getName(), employeeForm.getBirthDate(), employeeForm.getAddress(), fileName, employeeForm.getSalary(), employeeForm.getDepartment());
         } else {
-            return new Employee(employeeForm.getId(),employeeForm.getName(), employeeForm.getBirthDate(), employeeForm.getAddress(), fileName, employeeForm.getSalary());
+            return new Employee(employeeForm.getId(),employeeForm.getName(), employeeForm.getBirthDate(), employeeForm.getAddress(), fileName, employeeForm.getSalary(), employeeForm.getDepartment());
         }
     }
 
@@ -73,5 +73,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.delete(id);
     }
 
+    @Override
+    public Employee findById(long id) {
+        return employeeRepository.findOne(id);
+    }
 
+    @Override
+    public Iterable<Employee> findAll() {
+        return employeeRepository.findAll();
+    }
 }

@@ -19,24 +19,30 @@ public class Employee {
     private String avatar;
     private float salary;
 
+    @ManyToOne
+    @JoinColumn(name="department_id")
+    private Department department;
+
     public Employee() {
     }
 
-    public Employee(Long id, String name, LocalDate birthDate, String address, String avatar, float salary) {
+    public Employee(Long id, String name, LocalDate birthDate, String address, String avatar, float salary, Department department) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
         this.address = address;
         this.avatar = avatar;
         this.salary = salary;
+        this.department = department;
     }
 
-    public Employee(String name, LocalDate birthDate, String address, String avatar, float salary) {
+    public Employee(String name, LocalDate birthDate, String address, String avatar, float salary, Department department) {
         this.name = name;
         this.birthDate = birthDate;
         this.address = address;
         this.avatar = avatar;
         this.salary = salary;
+        this.department = department;
     }
 
     public Long getId() {
@@ -85,5 +91,23 @@ public class Employee {
 
     public void setSalary(float salary) {
         this.salary = salary;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public void setEmployee(Employee employee){
+        this.id = employee.getId();
+        this.name = employee.getName();
+        this.birthDate = employee.getBirthDate();
+        this.address = employee.getAddress();
+        this.avatar = employee.getAvatar();
+        this.salary = employee.getSalary();
+        this.department = employee.getDepartment();
     }
 }
