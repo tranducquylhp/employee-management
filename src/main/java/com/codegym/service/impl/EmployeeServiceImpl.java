@@ -26,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Page<Employee> findAll(Pageable pageable) {
-        return employeeRepository.findAll(pageable);
+        return employeeRepository.sort(pageable);
     }
 
     @Override
@@ -37,12 +37,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     }
 
+    @Override
+    public Employee findById(Long id) {
+        return employeeRepository.findOne(id);
+    }
+
     private Employee getEmployee(EmployeeForm employeeForm) {
         // lay ten file
         MultipartFile multipartFile = employeeForm.getAvatar();
         String fileName = multipartFile.getOriginalFilename();
         String fileUpload = env.getProperty("file_upload").toString();
-
         // luu file len server
         try {
             //multipartFile.transferTo(imageFile);
@@ -50,10 +54,18 @@ public class EmployeeServiceImpl implements EmployeeService {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        if (fileName.equals("")){
+            Employee employee = findById(employeeForm.getId());
+            fileName = employee.getAvatar();
+        }
         // tham khảo: https://github.com/codegym-vn/spring-static-resources
 
         // tao doi tuong de luu vao db
-        return new Employee(employeeForm.getName(),employeeForm.getBirthDate(),employeeForm.getAddress(), fileName, employeeForm.getSalary());
+        if (employeeForm.getId() == null) {
+            return new Employee(employeeForm.getName(), employeeForm.getBirthDate(), employeeForm.getAddress(), fileName, employeeForm.getSalary());
+        } else {
+            return new Employee(employeeForm.getId(),employeeForm.getName(), employeeForm.getBirthDate(), employeeForm.getAddress(), fileName, employeeForm.getSalary());
+        }
     }
 
     @Override

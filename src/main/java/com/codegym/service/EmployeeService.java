@@ -5,4 +5,5 @@ import com.codegym.model.EmployeeForm;
 
 public interface EmployeeService extends  GeneralService<Employee> {
     void save(EmployeeForm employeeForm);
+    Employee findById(Long id);
 }

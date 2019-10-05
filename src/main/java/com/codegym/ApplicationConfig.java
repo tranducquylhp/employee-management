@@ -158,7 +158,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     @Override
     public void addFormatters(FormatterRegistry registry) {
         StringToLocalDateConverter stringToLocalDateConverter = new
-                StringToLocalDateConverter("MM-dd-yyyy");
+                StringToLocalDateConverter("yyyy-MM-dd");
         registry.addConverter(stringToLocalDateConverter);
     }
 }

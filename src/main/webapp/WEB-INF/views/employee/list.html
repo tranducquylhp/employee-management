@@ -41,7 +41,7 @@
 <div>
     <a th:href="@{'/employees'(page=${employees.number - 1})}" th:if="${employees.hasPrevious()}">Previous</a>
     <span th:text="${employees.number + 1}"></span>/<span th:text="${employees.totalPages}"></span>
-    <a th:href="@{'/employess'(page=${employees.number + 1})}" th:if="${employees.hasNext()}">Next</a>
+    <a th:href="@{'/employees'(page=${employees.number + 1})}" th:if="${employees.hasNext()}">Next</a>
 </div>
 </body>
 </html>
